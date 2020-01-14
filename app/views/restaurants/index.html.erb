@@ -1,0 +1,28 @@
+<div class="background-container">
+  <h1 class="text-center main-title">Restaurants</h1>
+
+  <div class="restaurant-container">
+    <div class="row justify-content-center">
+      <% @restaurants.each do |restaurant| %>
+        <div class="index-card">
+          <img style="height: 200px; width: auto" src=<%= restaurant.pic %> > 
+          <div>
+            <h3 class="justify-content-center m-2 text-center" style="color: #ff7700; font-weight: bold;"> <%= restaurant.name %> </h3>
+            <div class="justify-content-center text-center d-flex">
+              <i class="fas fa-utensils" style="color: #C4008C; font-size: 20px;"></i>
+              <p>&nbsp;</p>
+              <h5 style="color: red; font-weight: bold;"> <%= restaurant.category %> </h3>
+            </div>
+          </div>
+          <div class="index-card-info justify-content-center">
+            <h1><a> <%= link_to "More info", restaurant_path(restaurant), class: "btn btn-info mr-3", style: "color: white; font-weight: bold" %></a></h1>
+            <h1><a> <%= link_to Review, new_restaurant_review_path(restaurant), class: "btn btn-warning", style: "color: white; font-weight: bold" %></a></h1>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+    <div class="text-center">
+      <%= link_to "New restaurant", new_restaurant_path, class: "btn btn-danger mt-4 mb-4", style: "color: white; font-weight: bold;"%>
+    </div>
+</div>

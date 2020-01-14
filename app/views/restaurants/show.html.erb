@@ -1,0 +1,20 @@
+<div class="background-container">
+  <div class="row">
+    <div class="restaurant-card justify-content-center">
+      <%= link_to "Home", restaurants_path, class: "btn btn-warning m-3", style: "color: white; font-weight: bold" %>
+      <img style="height: 250px; width: 350px; margin-bottom: 16px;" src=<%= @restaurant.pic %> >
+      <h1 class="card-restaurant-name"><%= @restaurant.name %></h1>
+      <p style="color: white; font-weight: bold;"><i class="fas fa-utensils" style="color: #FF7700; font-size: 24px;"></i> <%= @restaurant.category %></p>
+      <p style="color: white; font-weight: bold;"><i class="fas fa-map-signs" style="color: #D6002B; font-size: 24px;"></i> <%= @restaurant.address %></p>
+      <p style="color: white; font-weight: bold;"><i class="fas fa-mobile" style="color: #C4008C; font-size: 24px;"></i> <%= @restaurant.phone_number %></p>
+      <ul style="list-style-type: none;">
+      <p style="color: royalblue; font-weight: bold;">What people are saying about <%= @restaurant.name %>...</p>
+        <% @restaurant.reviews.each do |review| %>
+          <li style="color: white; font-weight: bold;"><%= review.rating %><i class="fas fa-star" style="color:yellow;"></i> </li>
+          <li><%= review.content %></li>
+        <% end %>
+      </ul>
+      <%= link_to Review, new_restaurant_review_path(@restaurant), class: "btn btn-warning m-3", style: "color: white; font-weight: bold" %>
+    <div>
+  </div>
+</div>
